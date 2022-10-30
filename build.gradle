@@ -4,6 +4,13 @@ buildscript {
         hilt_version = "2.40.5"
         coroutine_version="1.6.0"
         room_version="2.4.1"
+        accompanist_version = '0.24.3-alpha'
+        lifecycle_version = '2.4.1'
+        paging_version = '1.0.0-alpha14'
+        lottie_version = '4.2.2'
+        room_version = '2.4.2'
+        okhttp_version = '4.9.3'
+        chucker_version = "3.5.2"
     }
 
     dependencies {

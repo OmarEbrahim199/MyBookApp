@@ -6,5 +6,9 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class MyBookApp :Application(){
+    val isDark = mutableStateOf(false)
 
+    fun toggleTheme() {
+        isDark.value = !isDark.value
+    }
 }

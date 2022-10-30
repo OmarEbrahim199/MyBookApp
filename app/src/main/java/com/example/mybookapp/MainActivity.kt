@@ -9,26 +9,31 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mybookapp.navigation.NavGraph
-import com.example.mybookapp.navigation.bottomnav.MainScreen
+import com.example.mybookapp.navigation.bottomnav.NavGraph
 
 
 import com.example.mybookapp.ui.theme.MyBookAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @ExperimentalComposeUiApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var application: MyBookApp
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyBookAppTheme {
+            MyBookAppTheme (darkTheme = application.isDark.value) {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                   //NavGraph()
-                    MainScreen()
+                Surface(color = MaterialTheme.colors.background,
+                        modifier = Modifier.fillMaxSize()) {
+                   NavGraph()
+                   //MainScreen()
 
 
                 }
@@ -43,6 +48,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MyBookAppTheme {
-
+NavGraph()
     }
 }
